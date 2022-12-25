@@ -1,0 +1,28 @@
+{
+  "name": "wpm_test",
+  "version": "1.0.0",
+  "description": "app to test wpm ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yogesh2019/WPM_test.git"
+  },
+  "keywords": [
+    "wpm",
+    "test"
+  ],
+  "author": "yogesh khichi, khushi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yogesh2019/WPM_test/issues"
+  },
+  "homepage": "https://github.com/yogesh2019/WPM_test#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node": "^19.3.0"
+  }
+}
