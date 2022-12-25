@@ -1,0 +1,146 @@
+body {
+    background-color: #B9C7B9;
+    color: 466443;
+    text-align: center;
+    justify-content: center;
+  }
+   
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F9FCF8;
+    width: 800px;
+    height: 700px;
+    justify-content: center;
+   
+    margin: 0 auto;
+  }
+ 
+  .heading {
+    margin-bottom: 20px;
+    font-size: 3rem;
+    color: #466443;
+  }
+   
+  .header {
+    display: flex;
+    align-items: center;
+  }
+   
+  .timer, .errors, .accuracy,
+  .cpm, .wpm {
+    background-color: #D5E5D4;
+    height: 60px;
+    width: 70px;
+    margin: 8px;
+    padding: 12px;
+    border-radius: 20%;
+    box-shadow: black 5px 8px 5px;
+  }
+   
+  .cpm, .wpm  {
+    display: none;
+  }
+   
+  .header_text {
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    font-weight: 600;
+  }
+   
+  .curr_time, .curr_errors,
+  .curr_accuracy, .curr_cpm,
+  .curr_wpm {
+    font-size: 2.75rem;
+  }
+   
+  .quote {
+    background-color: #D5E5D4;
+    font-size: 1.5rem;
+    margin: 10px;
+    padding: 25px;
+    box-shadow: black 5px 8px 5px;
+  }
+   
+  .input_area {
+    background-color: #e3f2de;
+    height: 80px;
+    width: 40%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 15px;
+    padding: 20px;
+    border: 0px;
+    box-shadow: black 5px 8px 5px;
+  }
+   
+  .restart_btn {
+    display: none;
+    background-color: #326765;
+    font-size: 1.5rem;
+    padding: 10px;
+    border: 0px;
+    box-shadow: black 5px 8px 5px;
+  }
+   
+  .incorrect_char {
+    color: red;
+    text-decoration: underline;
+  }
+   
+  .correct_char {
+    color: rgb(1, 8, 1);
+  }
+
+  /* //signup */
+  #signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #466443;
+    background-color: #F9FCF8;
+    width: 800px;
+    height: 700px;
+    justify-content: center;
+  }
+.form {
+  display: flex;
+  width: 300px;
+  justify-content: center;
+ flex-direction: column;
+ text-align: left;
+ gap: .2rem;
+ font-size: 1.2rem;
+ 
+}
+.form button {
+    width: 300px;
+    background-color: #466443;
+    color: white;
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+label {
+    margin-top: 1rem;
+}
+.form input {
+  padding: 10px;
+  border-radius: 10px;
+
+}
+
+.correct {
+    color: green;
+}
+.inncorrect {
+    color: red;
+}
+.container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
