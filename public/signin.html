@@ -1,72 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <title>SignIn</title>
-  </head>
-  <body>
-    <div class="main">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>SignIn</title>
+</head>
+
+<body>
+  <div class="main">
     <div id="signup-container">
-    <h1>Sign In</h1>
+      <h1>Sign In</h1>
       <hr />
-     <form action="" class="form">
+      <form action="" class="form">
 
-         <label for="email"><b>Email</b></label>
-         <input
-         type="text"
-         placeholder="Enter your Email"
-         name="email"
-         required
-         id="email"
-         />
-         
-         <label for="psw"><b>Password</b></label>
-         <input
-         type="password"
-         placeholder="Enter Password"
-         name="psw"
-         required
-         id="password"
-         />
-         
-         <div class="clearfix">
-             <button type="submit" id="sign-in-btn btn">Sign in</button>
-            </form>
-      </div>
-      <hr />
-      <p>Do not have an account? <a href="./index.html">Sign Up</a></p>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter your Email" name="email" required id="email" />
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required id="password" />
+
+        <div class="clearfix">
+          <button type="button" id="sign-in-btn">Sign in</button>
+        </div>
+        <div class="clearfix2"  display = "hidden">
+          <button type="submit" id="game"> <a href="./game.html">GO TO Game</a></button>
+        </div>
+      </form>
     </div>
+    <hr />
+    <p>Do not have an account? <a href="./index.html">Sign Up</a></p>
   </div>
-    <script>
-      let signInSubmitButton = document.querySelector("#sign-in-btn");
-      let email = document.getElementById("email");
-      let pwd = document.getElementById("password");
+  </div>
+  <script>
+    let signInSubmitButton = document.getElementById("sign-in-btn");
+    let email = document.getElementById("email");
+    let pwd = document.getElementById("password");
+    let BASE_URL = "http://localhost:3000";
+    let game = document.getElementById("game");
+    game.style.display = "none"; 
+    signInSubmitButton.addEventListener("click", async () => {
+      let user = {
+        email: email.value,
+        password: pwd.value,
+      };
 
-      signInSubmitButton.addEventListener("click", async () => {
-        let user = {
-          email: email.value,
-          password: pwd.value,
-        };
-
-        console.log(user);
-
-        let request = await fetch("https://day-4-backend.kusum-chowdhury.repl.co/api/v1/signin", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          crossDomain: true,
-          body: JSON.stringify(user),
-        });
-        let message = await request.text();
-
-        console.log(message);
-
-        alert(message);
+      let fetchRes = await fetch(
+        `${BASE_URL}/api/v1/user/signin`, {
+        method: "POST",
+        headers: {
+          "Accept": 'application/json',
+          "Content-Type": "application/json",
+        },
+        crossDomain: true,
+        body: JSON.stringify(user),
       });
-    </script>
-  </body>
+     
+      let message = await fetchRes.json();
+
+      console.log(message.message);
+      if(message.message == 'signed'){
+        game.style.display = "block";
+      }
+      alert(message.message);
+    });
+  </script>
+</body>
+
 </html>

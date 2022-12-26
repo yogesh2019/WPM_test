@@ -12,60 +12,66 @@
 <body>
   <div class="main">
 
-  <div id="signup-container">
-    <h1>Sign Up</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr />
-    <form action="" class="form">
+    <div id="signup-container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr />
+      <form action="" class="form">
 
-        <label for="name" id="name"><b>Name</b></label>
+        <label for="name" ><b>Name</b></label>
         <input type="text" placeholder="Enter your name" name="name" required id="name" />
-        
+
         <label for="email"><b>Email</b></label>
         <input type="text" placeholder="Enter your Email" name="email" required id="email" />
-        
+
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required id="password" />
-        
+
         <div class="clearfix">
-            <button type="submit" class="signupbtn" id="sign-up-btn btn">
-                Sign Up
-            </button>
-        </form>
+          <button type="button" class="signupbtn" id="sign-up-btn">
+            Sign Up
+          </button>
+      </form>
     </div>
     <hr />
     <p>Already have an account? <a href="./signin.html">Sign In</a></p>
- </div>
-</div>
-  <script>
-    let signUpSubmitButton = document.querySelector("#sign-up-btn");
+  </div>
+  </div>
+  <script async>
+    let signUpSubmitButton = document.getElementById("sign-up-btn");
     let name = document.getElementById("name");
     let email = document.getElementById("email");
     let pwd = document.getElementById("password");
+    let BASE_URL = "http://localhost:3000";
 
     signUpSubmitButton.addEventListener("click", async () => {
-      let user = {
+      try {
+        let user = {
         name: name.value,
         email: email.value,
         password: pwd.value,
       };
 
-      console.log(user);
-
-      let request = await fetch("https://frontend.kusum-chowdhury.repl.co/api/v1/signup", {
+      let fetchRes = await fetch(
+        `${BASE_URL}/api/v1/user/signup`, {
         method: "POST",
         headers: {
+          "Accept": 'application/json',
           "Content-Type": "application/json",
         },
-        crossDomain: true,
         body: JSON.stringify(user),
       });
-      let message = await request.text();
-
-      console.log(message);
-
+      
+      let message = await fetchRes.text();
       alert(message);
-    });
+      } catch (error) {
+        console.log('error',error);
+      }
+
+
+       
+    })
+
   </script>
 </body>
 
