@@ -1,72 +1,70 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SingUp</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <title>Typing Test</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <div class="main">
-
-  <div id="signup-container">
-    <h1>Sign Up</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr />
-    <form action="" class="form">
-
-        <label for="name" id="name"><b>Name</b></label>
-        <input type="text" placeholder="Enter your name" name="name" required id="name" />
-        
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter your Email" name="email" required id="email" />
-        
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required id="password" />
-        
-        <div class="clearfix">
-            <button type="submit" class="signupbtn" id="sign-up-btn btn">
-                Sign Up
-            </button>
-        </form>
+    <header class="header">
+        <nav>
+          <ul>
+            <li>
+            <a href="dashboard.html">DASHBOARD</a>
+            <li> 
+              <li class="user"> <span class="material-symbols-outlined">
+                account_circle
+                </span> <a href="#">USER</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="main">
+    <div class="modal hidden">
+     <p class="score-text"></p>
+     <button class="modal-btn">Try again</button>
     </div>
-    <hr />
-    <p>Already have an account? <a href="./signin.html">Sign In</a></p>
- </div>
+    <div class="container">
+        <input type="text" class="input-field">
+        <div class="content-box">
+            <div class="text-of-typing">
+                <p></p>
+            </div>
+        </div>
+        <button>Reset</button>
+    </div>
+    <div class="content">
+        <ul class="result">
+            <li class="time">
+                <p>Time</p>
+                <span>60s</span>
+            </li>
+            <li class="errors">
+                <p>Errors</p>
+                <span>0</span>
+            </li>
+            <li class="wpm">
+                <p>WPM</p>
+                <span>0</span>
+            </li>
+            <li class="cpm">
+                <p>CPM</p>
+                <span>0</span>
+            </li>
+        </ul>
+    </div>
 </div>
-  <script>
-    let signUpSubmitButton = document.querySelector("#sign-up-btn");
-    let name = document.getElementById("name");
-    let email = document.getElementById("email");
-    let pwd = document.getElementById("password");
+   
 
-    signUpSubmitButton.addEventListener("click", async () => {
-      let user = {
-        name: name.value,
-        email: email.value,
-        password: pwd.value,
-      };
-
-      console.log(user);
-
-      let request = await fetch("https://frontend.kusum-chowdhury.repl.co/api/v1/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        crossDomain: true,
-        body: JSON.stringify(user),
-      });
-      let message = await request.text();
-
-      console.log(message);
-
-      alert(message);
-    });
-  </script>
+    <script src="paragraphs.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
